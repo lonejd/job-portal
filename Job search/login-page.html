@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #d6d09a;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+    .left {
+      flex: 1;
+      padding: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+    }
+
+    .right {
+  flex: 1.2;
+  height: 100vh;
+  padding: 0;
+  overflow: hidden;
+}
+
+.right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right;
+  animation: fadeInUp 1.3s ease forwards;
+  opacity: 0;
+}
+
+
+
+
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #000;
+    }
+
+    h1 span {
+      color: #e49f3c;
+    }
+
+    p {
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    input[type="email"],
+    input[type="password"] {
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #aaa;
+      border-radius: 6px;
+      width: 100%;
+      font-size: 16px;
+    }
+
+    .options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      margin-bottom: 30px;
+    }
+
+    .remember {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .remember input {
+      width: 16px;
+      height: 16px;
+      accent-color: #e49f3c;
+    }
+
+    .signin-btn {
+  background-color: #e49f3c;
+  border: none;
+  color: #000;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 10px 30px;
+  border-radius: 8px;
+  width: fit-content;
+  align-self: flex-start;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  animation-delay: 0.4s;
+}
+
+.signin-btn:hover {
+  background-color: #00a100; /* ✅ Changes to green on hover */
+  color: white;              /* ✅ Text turns white for contrast */
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+
+    .footer {
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    .footer a {
+      color: #a269e8;
+      text-decoration: none;
+      margin-left: 6px;
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .left > * {
+      opacity: 0;
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    .left > *:nth-child(1) { animation-delay: 0.1s; }
+    .left > *:nth-child(2) { animation-delay: 0.2s; }
+    .left > *:nth-child(3) { animation-delay: 0.3s; }
+    .left > *:nth-child(4) { animation-delay: 0.4s; }
+    .left > *:nth-child(5) { animation-delay: 0.5s; }
+    .left > *:nth-child(6) { animation-delay: 0.6s; }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .right {
+        display: none;
+      }
+
+      .left {
+        padding: 30px;
+      }
+    }
+    .input-group {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 16px 10px 8px;  /* Top padding is higher for better vertical align */
+  border: 1px solid #666;
+  border-radius: 6px;
+  font-size: 16px;
+  background: none;
+  outline: none;
+  color: #000;
+}
+
+.input-group label {
+  position: absolute;
+  top: 14px;  /* Align with text inside */
+  left: 12px;
+  font-size: 16px;
+  color: #888;
+  background-color: #d6d09a;
+  padding: 0 4px;
+  transition: 0.3s ease;
+  pointer-events: none;
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown):valid + label {
+  top: -8px;
+  left: 10px;
+  font-size: 13px;
+  color: #333;
+}
+
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="left">
+      <h1><span><i>Hello,</i></span><br>Welcome back</h1>
+      <p>Hey, welcome back to your special place</p>
+      <div class="input-group">
+  <input type="email" id="email" required>
+  <label for="email">Enter your e-mail id</label>
+</div>
+
+      <div class="input-group">
+  <input type="password" id="password" required>
+  <label for="password">Password</label>
+</div>
+      <div class="options">
+        <label class="remember">
+          <input type="checkbox"> Remember me
+        </label>
+        <a href="#">Forgot password</a>
+      </div>
+      <button class="signin-btn" onclick="window.location.href='job listing.html'">Sign In</button>
+
+      <div class="footer">
+        Don’t have an account? <a href="sign-in.html">Create an account</a>
+      </div>
+    </div>
+    <div class="right">
+      <img src="images/office.png" alt="Login Illustration" />
+    </div>
+  </div>
+</body>
+</html>

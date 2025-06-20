@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Application Form</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #f5f6fa;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+
+    .form-container {
+      background: #fff;
+      width: 100%;
+      max-width: 900px;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      animation: fadeIn 1s ease forwards;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .steps {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+
+    .step {
+      display: flex;
+      align-items: center;
+      color: #999;
+      font-size: 14px;
+    }
+
+    .circle {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: #ddd;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+      margin-right: 8px;
+    }
+
+    .active .circle {
+      background-color: #f4c20d;
+    }
+
+    .step + .step::before {
+      content: '';
+      width: 30px;
+      height: 2px;
+      background: #ddd;
+      display: inline-block;
+      margin: 0 12px;
+    }
+
+    .form-section {
+      display: none;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 40px;
+      animation: fadeInUp 0.6s ease forwards;
+    }
+
+    .form-section.active {
+      display: grid;
+    }
+
+    .form-group {
+      position: relative;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 14px 12px;
+      font-size: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      outline: none;
+      background: transparent;
+    }
+
+    .form-group label {
+      position: absolute;
+      top: 50%;
+      left: 12px;
+      transform: translateY(-50%);
+      background: #fff;
+      padding: 0 4px;
+      color: #888;
+      font-size: 14px;
+      pointer-events: none;
+      transition: 0.3s ease;
+    }
+
+    .form-group input:focus + label,
+    .form-group input:not(:placeholder-shown) + label,
+    .form-group select:focus + label,
+    .form-group select:not([value=""]) + label {
+      top: -10px;
+      font-size: 12px;
+      color: #f4c20d;
+    }
+
+    .form-navigation {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      font-size: 16px;
+      background: #f4c20d;
+      color: #000000;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #0d8d04;
+      transform: scale(1.03);
+    }
+
+    .btn.hidden {
+      visibility: hidden;
+    }
+
+    #reviewContent {
+      grid-column: 1 / -1;
+      line-height: 2;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background: #f9f9f9;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .form-section {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Application Form</h2>
+    <div class="steps">
+      <div class="step active"><div class="circle">1</div> Personal details</div>
+      <div class="step"><div class="circle">2</div> Academic details</div>
+      <div class="step"><div class="circle">3</div> Review</div>
+    </div>
+
+    <form id="multiStepForm">
+      <!-- Step 1 -->
+      <div class="form-section active" id="step1">
+        <div class="form-group"><input id="firstName" placeholder=" " required><label>First Name*</label></div>
+        <div class="form-group"><input id="lastName" placeholder=" "><label>Last Name</label></div>
+        <div class="form-group"><input type="date" id="dob" placeholder=" " required><label>Date of Birth*</label></div>
+        <div class="form-group">
+          <select id="gender" required><option value="" disabled selected hidden></option><option>Male</option><option>Female</option><option>Other</option></select>
+          <label>Gender*</label>
+        </div>
+        <div class="form-group"><input id="phone" placeholder=" " required><label>Phone*</label></div>
+        <div class="form-group"><input id="email" placeholder=" " required><label>Email*</label></div>
+        <div class="form-group"><input id="father" placeholder=" " required><label>Father's Name</label></div>
+        <div class="form-group"><input id="mother" placeholder=" " required><label>Mother's Name</label></div>
+        <div class="form-group"><input id="nationality" placeholder=" " required><label>Nationality</label></div>
+        <div class="form-group"><input id="religion" placeholder=" " required><label>Religion</label></div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="form-section" id="step2">
+        <div class="form-group"><input id="school" placeholder=" " required><label>School Name*</label></div>
+        <div class="form-group"><input id="board" placeholder=" " required><label>Board/University*</label></div>
+        <div class="form-group"><input id="percentage" placeholder=" " required><label>Percentage / CGPA*</label></div>
+        <div class="form-group"><input id="year" placeholder=" " required><label>Year of Passing*</label></div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="form-section" id="step3">
+        <div id="reviewContent"></div>
+      </div>
+
+      <div class="form-navigation">
+        <button type="button" class="btn" id="backBtn" onclick="goBack()">← Back</button>
+        <button type="button" class="btn" id="nextBtn" onclick="goNext()">Next step →</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    let currentStep = 1;
+
+    function showStep(step) {
+      // Toggle section visibility
+      document.querySelectorAll('.form-section').forEach((section, idx) => {
+        section.classList.toggle('active', idx === step - 1);
+      });
+
+      // Toggle active step in header
+      document.querySelectorAll('.step').forEach((el, idx) => {
+        el.classList.toggle('active', idx < step);
+      });
+
+      // Button handling
+      const backBtn = document.getElementById("backBtn");
+      const nextBtn = document.getElementById("nextBtn");
+
+      backBtn.style.visibility = (step === 1) ? "hidden" : "visible";
+      nextBtn.textContent = (step === 3) ? "Submit" : "Next step →";
+    }
+
+    function goNext() {
+      if (currentStep < 3) {
+        currentStep++;
+        showStep(currentStep);
+        if (currentStep === 3) fillReview();
+      } else {
+        alert("Form submitted successfully!");
+        setTimeout(() => {
+          window.location.href = "job listing.html"; // Update with your landing page
+        }, 3000);
+      }
+    }
+
+    function goBack() {
+      if (currentStep > 1) {
+        currentStep--;
+        showStep(currentStep);
+      }
+    }
+
+    function fillReview() {
+      const fields = {
+        "First Name": document.getElementById("firstName").value,
+        "Last Name": document.getElementById("lastName").value,
+        "Date of Birth": document.getElementById("dob").value,
+        "Gender": document.getElementById("gender").value,
+        "Phone": document.getElementById("phone").value,
+        "Email": document.getElementById("email").value,
+        "Father's Name": document.getElementById("father").value,
+        "Mother's Name": document.getElementById("mother").value,
+        "Nationality": document.getElementById("nationality").value,
+        "Religion": document.getElementById("religion").value,
+        "School Name": document.getElementById("school").value,
+        "Board": document.getElementById("board").value,
+        "Percentage / CGPA": document.getElementById("percentage").value,
+        "Year of Passing": document.getElementById("year").value
+      };
+
+      const reviewContent = document.getElementById("reviewContent");
+      reviewContent.innerHTML = Object.entries(fields).map(
+        ([label, value]) => `<strong>${label}:</strong> ${value}<br/>`
+      ).join('');
+    }
+
+    // Initialize first step
+    showStep(currentStep);
+  </script>
+</body>
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Job Description</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #d6d09a;
+      padding: 20px;
+      color: #222;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-bottom: 40px;
+      animation: fadeInDown 1s ease forwards;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: black;
+      font-weight: 500;
+      font-size: 15px;
+    }
+
+    nav a.active {
+      color: #00a100;
+      font-weight: 600;
+    }
+
+    .login-btn {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      background-color: #00a100;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .login-btn:hover {
+      background-color: #008c00;
+      transform: translateY(-2px);
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    header h1 {
+      font-size: 36px;
+      font-weight: 700;
+    }
+
+    header h1 .green {
+      color: #00a100;
+    }
+
+    .job-card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+      padding: 20px;
+      margin-bottom: 30px;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    .job-card img {
+      width: 80px;
+      height: 80px;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+
+    .job-details {
+      flex: 1;
+    }
+
+    .job-meta {
+      font-size: 12px;
+      color: gray;
+    }
+
+    .job-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin: 6px 0;
+    }
+
+    .job-info {
+      font-size: 14px;
+      color: #555;
+      margin-top: 8px;
+    }
+
+    .apply-btn {
+      background-color: #00a100;
+      color: white;
+      font-weight: bold;
+      padding: 8px 18px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .apply-btn:hover {
+      background-color: #008c00;
+      transform: translateY(-2px);
+    }
+
+    .job-description {
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+      line-height: 1.6;
+      animation: fadeInUp 1.3s ease forwards;
+    }
+
+    .job-description h2 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .job-description ul {
+      padding-left: 20px;
+      margin-bottom: 20px;
+    }
+
+    .job-description ul li {
+      margin-bottom: 6px;
+    }
+
+    .job-description .apply-container {
+      text-align: right;
+      margin-top: 20px;
+    }
+
+    .footer {
+      text-align: right;
+      font-size: 12px;
+      color: gray;
+      margin-top: 30px;
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInDown {
+      0% {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Right Log In Button -->
+  <button class="login-btn">Log in</button>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="Job listing.html">Job List</a>
+    <a href="#" class="active">Job Description</a>
+    <a href="#">Post a Job</a>
+  </nav>
+
+  <!-- Hero Heading -->
+  <header>
+    <h1>Find the <span class="green">job</span> that <span class="green">finds</span> you back.</h1>
+  </header>
+
+  <!-- Job Card -->
+  <div class="job-card">
+    <img src="images/real-estate-building-logo-icon-design-free-vector.jpg" alt="Company Logo" />
+    <div class="job-details">
+      <div class="job-meta">Created on Monday | Updated on Wednesday</div>
+      <div class="job-title">Front-end Developer</div>
+      <div class="job-info">
+        Staff | Full Time | 24 applied<br />
+        Company: VR della &nbsp;&nbsp;&nbsp; Salary: 3-4 LPA &nbsp;&nbsp;&nbsp; Min 2-3 yrs experience
+      </div>
+    </div>
+    <button class="apply-btn">APPLY</button>
+  </div>
+
+  <!-- Job Description -->
+  <div class="job-description">
+    <h2>About the Role</h2>
+    <p>
+      We're looking for a passionate Front-End Developer who can turn design mockups into pixel-perfect, responsive, and interactive web applications.
+      You’ll work closely with our UI/UX designers and backend team to create seamless user experiences.
+    </p>
+
+    <h2>Responsibilities</h2>
+    <ul>
+      <li>Convert Figma/Adobe XD designs into clean, maintainable code</li>
+      <li>Build responsive web interfaces using HTML, CSS, and JavaScript</li>
+      <li>Work with React.js or similar frameworks</li>
+      <li>Optimize applications for speed and scalability</li>
+      <li>Ensure cross-browser and cross-platform compatibility</li>
+      <li>Collaborate with designers and backend developers</li>
+      <li>Maintain code quality and best practices</li>
+    </ul>
+
+    <h2>Required Skills</h2>
+    <ul>
+      <li>Proficient in HTML5, CSS3, JavaScript (ES6+)</li>
+      <li>Experience with React.js, Vue.js, or similar</li>
+      <li>Familiar with Git/GitHub, REST APIs</li>
+      <li>Responsive design and browser debugging</li>
+      <li>Good understanding of UI/UX principles</li>
+    </ul>
+
+    <h2>Ready to Join Us?</h2>
+    <p>
+      If you're excited to shape intuitive digital experiences and grow in a collaborative tech environment, we'd love to hear from you.
+    </p>
+
+    <!-- Bottom Apply Button -->
+    <div class="apply-container">
+      <button class="apply-btn">APPLY</button>
+    </div>
+  </div>
+
+  <div class="footer">Terms & Condition apply</div>
+
+</body>
+</html>
